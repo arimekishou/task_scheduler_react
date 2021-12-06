@@ -1,30 +1,29 @@
 import React from "react";
-import Navbar from "./components/navbar/Navbar";
-import {makeStyles} from "@material-ui/core";
-import Header from "./components/header/Header";
-
-const useStyles = makeStyles((theme) => ({
-    body: {
-        webkitTextSizeAdjust: "100%",
-        boxSizing: "inherit",
-        margin: " 0",
-        fontSize: "15px",
-        fontFamily: "sans-serif",
-        height: " 100%",
-        lineHeight: "1.8",
-
-    }
-}))
+import Navbar from "./components/Navbar";
+import Header from "./components/Header";
+import About from "./components/about";
+import Promo from "./components/promo";
+import Registration from "./components/registration";
+import RegistrationConfirm from "./components/registrationConfirm";
+import Footer from "./components/footer";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 function App() {
-    const classes = useStyles();
 
     return (
-        <body className={classes.body}>
-        <Navbar/>
-        <Header/>
-        </body>
-
+        <BrowserRouter>
+            <div>
+                <Switch>
+                    <Route path="/registrationConfirm" component={RegistrationConfirm}/>
+                </Switch>
+                <Navbar/>
+                <Header/>
+                <About/>
+                <Promo/>
+                <Registration/>
+                <Footer/>
+            </div>
+        </BrowserRouter>
     );
 }
 
